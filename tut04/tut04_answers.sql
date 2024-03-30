@@ -49,7 +49,7 @@ FROM projects;
 -- 11. Show the department names with locations in 'North India' (Delhi or nearby regions).
 SELECT department_name
 FROM departments
-WHERE location LIKE 'North India%';
+WHERE location = 'New Delhi';
 
 -- 12. Calculate the average salary of all employees.
 SELECT AVG(salary) AS average_salary
