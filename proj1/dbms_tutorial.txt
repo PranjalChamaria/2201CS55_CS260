@@ -1,0 +1,8 @@
+This is a tutorial to run the project:
+1.Create a database called dbms
+2.Execute the queries for table creation so that all tables can be generated
+3.Copy the DBMS folder into C:\xampp\htdocs after installing Xampp
+4.Start the session on Xampp(Apache, MySQL)
+5.Now open localhost/DBMS on your browser
+6.Navigate to this location DBMS\ofa.iiti.ac.in\facrec_che_2023_july_02\faculty
+7.All pages are visible. You may sign up/ log in.

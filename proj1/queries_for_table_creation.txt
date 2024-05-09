@@ -1,0 +1,296 @@
+CREATE TABLE acde_qual (
+    app_no INT(11) NOT NULL,
+    degree VARCHAR(255),
+    university VARCHAR(255),
+    branch VARCHAR(255),
+    year_of_joining INT(11),
+    year_of_completion INT(11),
+    duration INT(11),
+    percent DECIMAL(5,2),
+    divi VARCHAR(20),
+    PRIMARY KEY (app_no)
+);
+CREATE TABLE address (
+    app_no INT(11) NOT NULL,
+    p_street INT(100) NOT NULL,
+    p_city VARCHAR(50) NOT NULL,
+    p_state VARCHAR(50) NOT NULL,
+    p_country VARCHAR(50) NOT NULL,
+    p_code INT(11) NOT NULL,
+    c_street VARCHAR(100),
+    c_city VARCHAR(50),
+    c_state VARCHAR(50),
+    c_country VARCHAR(50),
+    c_code INT(11)
+);
+CREATE TABLE app_det (
+    adv_no VARCHAR(35) NOT NULL,
+    app_no INT(11) NOT NULL,
+    dept TEXT NOT NULL,
+    doa DATE NOT NULL,
+    post TEXT
+);
+CREATE TABLE areas (
+    app_no INT(11) NOT NULL,
+    aos VARCHAR(500) NOT NULL,
+    aor VARCHAR(500)
+);
+CREATE TABLE award (
+    app_no INT(11) NOT NULL,
+    sno INT(11) NOT NULL,
+    name_aw VARCHAR(50) NOT NULL,
+    awd_by VARCHAR(50) NOT NULL,
+    yr INT(11)
+);
+CREATE TABLE best_publi (
+    app_no INT(11) NOT NULL,
+    author VARCHAR(255),
+    title VARCHAR(255),
+    journal VARCHAR(255),
+    yearvp VARCHAR(255),
+    imp_fctr DECIMAL(10,2),
+    doi VARCHAR(255),
+    stat VARCHAR(50)
+);
+CREATE TABLE book (
+    app_no INT(11) NOT NULL,
+    author VARCHAR(255),
+    title VARCHAR(255),
+    yop VARCHAR(50),
+    isbn VARCHAR(20)
+);
+CREATE TABLE book_chapter (
+    app_no INT(11) NOT NULL,
+    author VARCHAR(255),
+    title VARCHAR(255),
+    yop VARCHAR(20),
+    isbn VARCHAR(20)
+);
+CREATE TABLE contact (
+    app_no INT(11) NOT NULL,
+    mob INT(11) NOT NULL,
+    alt_mob INT(11),
+    landline INT(11),
+    email VARCHAR(100) NOT NULL,
+    alt_email VARCHAR(100)
+);
+CREATE TABLE emp_his (
+    app_no INT(11) NOT NULL,
+    sno INT(11) NOT NULL,
+    pos VARCHAR(50) NOT NULL,
+    ins VARCHAR(100) NOT NULL,
+    doj TEXT NOT NULL,
+    dol TEXT NOT NULL,
+    dur VARCHAR(50) NOT NULL,
+    teach_exp TEXT
+);
+CREATE TABLE gscholar (
+    app_no INT(11) NOT NULL,
+    link VARCHAR(255) NOT NULL
+);
+CREATE TABLE ind_exp (
+    app_no INT(11) NOT NULL,
+    sno INT(11) NOT NULL,
+    org VARCHAR(100) NOT NULL,
+    work VARCHAR(100) NOT NULL,
+    doj TEXT NOT NULL,
+    dol TEXT NOT NULL,
+    dur VARCHAR(50) NOT NULL
+);
+CREATE TABLE large_paras (
+    app_no INT(11) NOT NULL,
+    research_contri LONGTEXT NOT NULL,
+    teach_contri LONGTEXT NOT NULL,
+    other LONGTEXT NOT NULL,
+    prof_service LONGTEXT NOT NULL,
+    journal_pub LONGTEXT NOT NULL,
+    conference_pub LONGTEXT
+);
+CREATE TABLE patent (
+    app_no INT(11) NOT NULL,
+    inventor VARCHAR(255),
+    title VARCHAR(255),
+    country VARCHAR(100),
+    pno INT(11) NOT NULL,
+    fdate VARCHAR(55),
+    pdate VARCHAR(55),
+    idate VARCHAR(55)
+);
+CREATE TABLE pdf_upload (
+    app_no INT(11) NOT NULL,
+    pap VARCHAR(100) NOT NULL,
+    phd VARCHAR(100) NOT NULL,
+    pg VARCHAR(100) NOT NULL,
+    ug VARCHAR(100) NOT NULL,
+    c12 VARCHAR(100) NOT NULL,
+    c10 VARCHAR(100) NOT NULL,
+    pay VARCHAR(100) NOT NULL,
+    noc VARCHAR(100) NOT NULL,
+    certi VARCHAR(100) NOT NULL,
+    misc VARCHAR(100) NOT NULL,
+    sig VARCHAR(100)
+);
+CREATE TABLE per_det (
+    app_no INT(11) PRIMARY KEY NOT NULL,
+    fname VARCHAR(40) NOT NULL,
+    mname VARCHAR(40),
+    lname VARCHAR(40) NOT NULL,
+    nation VARCHAR(255),
+    dob VARCHAR(15),
+    gender VARCHAR(10),
+    marital VARCHAR(20),
+    category TEXT,
+    idproof VARCHAR(40),
+    id_file VARCHAR(1000) NOT NULL,
+    father VARCHAR(255),
+    photo VARCHAR(100)
+);
+CREATE TABLE pg_det (
+    app_no INT(11) NOT NULL,
+    deg VARCHAR(50) NOT NULL,
+    university VARCHAR(50) NOT NULL,
+    branch VARCHAR(30) NOT NULL,
+    yoj INT(11) NOT NULL,
+    yoc INT(11) NOT NULL,
+    dur INT(11) NOT NULL,
+    cgpa FLOAT NOT NULL,
+    division VARCHAR(20) NOT NULL
+);
+CREATE TABLE phd_det (
+    app_no INT(100) NOT NULL,
+    univ VARCHAR(100) NOT NULL,
+    supervisor VARCHAR(100) NOT NULL,
+    dod VARCHAR(555) NOT NULL,
+    thesis_title VARCHAR(100) NOT NULL,
+    dept VARCHAR(100) NOT NULL,
+    jyear VARCHAR(100) NOT NULL,
+    doa VARCHAR(100) NOT NULL
+);
+CREATE TABLE present_emp (
+    app_no INT(11) NOT NULL,
+    pos VARCHAR(50) NOT NULL,
+    ins VARCHAR(100) NOT NULL,
+    p_status TEXT NOT NULL,
+    doj TEXT NOT NULL,
+    dol TEXT NOT NULL,
+    dur VARCHAR(50) NOT NULL
+);
+CREATE TABLE proj_cons (
+    app_no INT(11) NOT NULL,
+    sno INT(11) NOT NULL,
+    org VARCHAR(100) NOT NULL,
+    title VARCHAR(50) NOT NULL,
+    amt INT(11) NOT NULL,
+    dur VARCHAR(25) NOT NULL,
+    proj_role TEXT NOT NULL,
+    proj_status TEXT NOT NULL
+);
+CREATE TABLE proj_spon (
+    app_no INT(11) NOT NULL,
+    sno INT(11) NOT NULL,
+    agency VARCHAR(100) NOT NULL,
+    title VARCHAR(50) NOT NULL,
+    amt INT(11) NOT NULL,
+    dur VARCHAR(25) NOT NULL,
+    proj_role TEXT NOT NULL,
+    proj_status TEXT NOT NULL
+);
+CREATE TABLE proj_soc (
+    app_no INT(11) NOT NULL,
+    sno INT(11) NOT NULL,
+    name_soc VARCHAR(50) NOT NULL,
+    mem VARCHAR(50) NOT NULL
+);
+CREATE TABLE pro_train (
+    app_no INT(11) NOT NULL,
+    sno INT(11) NOT NULL,
+    type_of VARCHAR(50) NOT NULL,
+    org VARCHAR(100) NOT NULL,
+    yr INT(11) NOT NULL,
+    dur VARCHAR(50) NOT NULL
+);
+CREATE TABLE pub_summary (
+    app_no INT(11) NOT NULL,
+    int_journals INT(11) DEFAULT 0,
+    nat_journals INT(11) DEFAULT 0,
+    int_conferences INT(11) DEFAULT 0,
+    nat_conferences INT(11) DEFAULT 0,
+    patents INT(11) DEFAULT 0,
+    books INT(11) DEFAULT 0,
+    book_chapters INT(11)
+);
+CREATE TABLE referal (
+    app_no INT(11) NOT NULL,
+    sno INT(11) NOT NULL,
+    name_ref TEXT NOT NULL,
+    pos TEXT NOT NULL,
+    ass_ref TEXT NOT NULL,
+    ins VARCHAR(50) NOT NULL,
+    email VARCHAR(50) NOT NULL,
+    contact INT(11) NOT NULL
+);
+CREATE TABLE research_exp (
+    app_no INT(11) NOT NULL,
+    sno INT(11) NOT NULL,
+    pos VARCHAR(50) NOT NULL,
+    ins VARCHAR(100) NOT NULL,
+    sup VARCHAR(50) NOT NULL,
+    doj TEXT NOT NULL,
+    dol TEXT NOT NULL,
+    dur VARCHAR(50) NOT NULL
+);
+CREATE TABLE research_supervision (
+    app_no INT(11) NOT NULL,
+    sno INT(11) NOT NULL,
+    lev TEXT NOT NULL,
+    name_stud VARCHAR(50) NOT NULL,
+    title_thesis VARCHAR(100) NOT NULL,
+    thesis_role TEXT NOT NULL,
+    thesis_status TEXT NOT NULL,
+    yr INT(11) NOT NULL
+);
+CREATE TABLE school_det (
+    app_no INT(11) NOT NULL,
+    levela VARCHAR(100) NOT NULL,
+    schoola VARCHAR(100) NOT NULL,
+    yopa VARCHAR(100) NOT NULL,
+    percenta VARCHAR(100) NOT NULL,
+    diva VARCHAR(100) NOT NULL,
+    levelb VARCHAR(100) NOT NULL,
+    schoolb VARCHAR(100) NOT NULL,
+    yopb VARCHAR(100) NOT NULL,
+    percentb VARCHAR(100) NOT NULL,
+    divb VARCHAR(100) NOT NULL
+);
+CREATE TABLE sign_up (
+    app_no INT(11) PRIMARY KEY AUTO_INCREMENT,
+    firstname VARCHAR(50) NOT NULL,
+    lastname VARCHAR(50) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    cast TEXT NOT NULL,
+    password VARCHAR(1000) NOT NULL
+);
+CREATE TABLE teach_exp (
+    app_no INT(11) NOT NULL,
+    sno INT(11) NOT NULL,
+    pos VARCHAR(50) NOT NULL,
+    emp VARCHAR(50) NOT NULL,
+    course VARCHAR(100) NOT NULL,
+    ug_pg TEXT NOT NULL,
+    nos INT(11) NOT NULL,
+    doj TEXT NOT NULL,
+    dol TEXT NOT NULL,
+    dur VARCHAR(50) NOT NULL
+);
+CREATE TABLE ug_det (
+    app_no INT(11) NOT NULL,
+    deg VARCHAR(50) NOT NULL,
+    university VARCHAR(50) NOT NULL,
+    branch VARCHAR(30) NOT NULL,
+    yoj INT(11) NOT NULL,
+    yoc INT(11) NOT NULL,
+    dur INT(11) NOT NULL,
+    cgpa FLOAT NOT NULL,
+    division VARCHAR(20) NOT NULL
+);
+
