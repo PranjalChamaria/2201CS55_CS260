@@ -1,20 +1,18 @@
-# Use Node 16 alpine as parent image
-FROM node:latest
-
-# Change the working directory on the Docker image to /app
-WORKDIR /app
-
-# Copy package.json and package-lock.json to the /app directory
-COPY package.json package-lock.json ./
-
-# Install dependencies
-RUN npm install
-
-# Copy the rest of project files into this image
-COPY . .
-
-# Expose application port
-EXPOSE 5000
-
-# Start the application
-CMD npm start
+FROM php:7.4-apache
+RUN apt-get update && apt upgrade -y
+RUN docker-php-ext-install mysqli pdo pdo_mysql && docker-php-ext-enable mysqli
+ADD ./FACULTY /var/www/html
+RUN echo 'SetEnv MYSQL_DB_CONNECTION ${MYSQL_DB_CONNECTION}' >> /etc/apache2/conf-enabled/environment.conf
+RUN echo 'SetEnv MYSQL_DB_NAME ${MYSQL_DB_NAME}' >> /etc/apache2/conf-enabled/environment.conf
+RUN echo 'SetEnv MYSQL_USER ${MYSQL_USER}' >> /etc/apache2/conf-enabled/environment.conf
+RUN echo 'SetEnv MYSQL_PASSWORD ${MYSQL_PASSWORD}' >> /etc/apache2/conf-enabled/environment.conf
+RUN echo 'SetEnv SITE_URL ${SITE_URL}' >> /etc/apache2/conf-enabled/environment.conf
+RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf &&\
+    a2enmod rewrite &&\
+    a2enmod headers &&\
+    a2enmod rewrite &&\
+    a2dissite 000-default &&\
+    a2ensite my-site &&\
+    service apache2 restart
+EXPOSE 80
+EXPOSE 443
