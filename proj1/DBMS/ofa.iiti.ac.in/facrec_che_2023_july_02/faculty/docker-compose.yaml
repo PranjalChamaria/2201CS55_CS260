@@ -1,34 +1,21 @@
-version: "3.2"
+version: "2"
 services:
-  nodejs:
-    build: 
-      context: .
-    image: project_website
-    networks:
-      - frontend
-      - backend
-    environment:
-      - MYSQL_HOST = localhost
-      - MYSQL_USER = root
-      - MYSQL_PASSWORD = 
-      - MYSQL_DB = login_proj
+  webserver:
+    image: mydemophpimage
+    ports:
+      - "80:80"
+      - "443:443"
     volumes:
-      - ./www/:/var/www/html/
-    ports:
-      - "3000:5000"
-    container_name: moe-nodejs-app
-  mysql:
-    image: mysql:latest
-    networks:
-      - backend
+      - ./app:/var/www/html
     environment:
-      - MYSQL_ROOT_PASSWORD = root
-      - MYSQL_USER = root
-      - MYSQL_PASSWORD =  
-      - MYSQL_DATABASE = login_proj
-    ports:
-      - "3001:3306"
-    container_name: moe-mysql-app
+      MYSQL_DB_CONNECTION: localhost
+      MYSQL_DB_NAME: dbms
+      MYSQL_USER: root
+      MYSQL_PASSWORD: 
+      SITE_URL: http://localhost
+    networks:
+      - test
+
 networks:
-  frontend:
-  backend:
+  test:
+    external: true
